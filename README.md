@@ -1,2 +1,2 @@
-# stylelint-config-sbtsbol
+# eslint-config-sbtsbol
 Formalized CSS Style Guide

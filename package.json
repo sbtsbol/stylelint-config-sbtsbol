@@ -1,0 +1,35 @@
+{
+  "name": "stylelint-config-sbtsbol",
+  "version": "1.0.0",
+  "description": "Formalized CSS Style Guide",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sbtsbol/stylelint-config-sbtsbol.git"
+  },
+  "keywords": [
+    "styleguide",
+    "css",
+    "sbertech",
+    "sbtsbol",
+    "config",
+    "stylelintconfig",
+    "stylelint"
+  ],
+  "author": "JSC SberTech",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sbtsbol/stylelint-config-sbtsbol/issues"
+  },
+  "homepage": "https://github.com/sbtsbol/stylelint-config-sbtsbol#readme",
+  "peerDependencies": {
+    "stylelint": "^8.2.0"
+  },
+  "publishConfig": {
+    "registry": "http://nexus.sigma.sbrf.ru:8099/nexus/content/repositories/sbol_npm_release/",
+    "always-auth": true
+  }
+}
