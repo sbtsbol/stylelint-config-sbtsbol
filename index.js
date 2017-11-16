@@ -3,18 +3,44 @@ const critical = 'warning'
 const major = 'warning'
 const minor = 'warning'
 
+const propertyMessage = 'Используйте семантическую палитру или палитру цветов из @sbol/lib.ui'
+const commentMessage = 'Предупреждения при использовании: TODOs; множественные disable; disable без приставки ", comment: сообщение менее 10 символов"'
+
+const noColorRegexp = [
+    '/#[a-fA-F0-9]{3,8}/',
+    '/rgba\\(\\d{0,3}, ?\\d{0,3}, ?\\d{0,3}, ?[.\\d]+\\)/',
+    '/rgb\\(\\d{0,3}, ?\\d{0,3}, ?\\d{0,3}\\)/',
+    '/color\\(.+\\)/',
+    'transparent'
+]
+const preventColors = {
+    '/color/': noColorRegexp,
+    '/box-shadow/': noColorRegexp,
+    '/background/': noColorRegexp,
+    '/outline/': noColorRegexp,
+    '/border/': noColorRegexp,
+    '/^--/': noColorRegexp
+}
+
+const ruleMatch = '\\b\\w+\\b(-\\b\\w+\\b)*(?!-)'
+const disableMatch = 'stylelint-disable(-line)?'
+const startsWith = '/^'
+
+const oneRuleComment = startsWith + disableMatch + ' ' + ruleMatch + '(?!, comment: .{10,})/'
+const noMultiDisable = startsWith + disableMatch + ' ' + ruleMatch + '(, ' + ruleMatch + ')+[^:]/'
+
 const blackLists = {
     'function-url-scheme-blacklist':            [["ftp", "/^http/"], { severity: blocker }],
     'selector-pseudo-class-blacklist':          ['/^nth-/', { severity: major }],
-    'comment-word-blacklist':                   ['/^TODO/', { severity: minor }],
+    'comment-word-blacklist':                   [['/^TODO/', oneRuleComment, noMultiDisable], { severity: major, message: commentMessage }],
+    'declaration-property-value-blacklist':     [preventColors, { severity: major, message: propertyMessage }],
     'at-rule-blacklist':                        null,
     'media-feature-name-blacklist':             null,
     'selector-attribute-operator-blacklist':    null,
     'declaration-property-unit-blacklist':      null,
-    'declaration-property-value-blacklist':     null,
     'function-blacklist':                       null,
     'unit-blacklist':                           null,
-    'property-blacklist':                       null,
+    'property-blacklist':                       [['font', 'font-family'], { severity: major, message: 'Использование font-family в проектах запрещено' }],
 }
 
 const whiteLists = {
