@@ -4,7 +4,10 @@ const major = 'warning'
 const minor = 'warning'
 
 const propertyMessage = 'Используйте семантическую палитру или палитру цветов из @sbol/lib.ui'
-const commentMessage = 'Предупреждения при использовании: TODOs; множественные disable; disable без приставки ", comment: сообщение менее 10 символов"'
+const commentMessage = 'Нежелательные комментарии: TODOs; ' +
+    'stylelint-disable на несколько правил; ' +
+    'stylelint-disable для одного правила без комментария к причине отключения, ' +
+    'пример правильного использования: "stylelint-disable-line some-rule, comment: Развернутый текст с обоснованием"'
 
 const noColorRegexp = [
     '/#[a-fA-F0-9]{3,8}/',
