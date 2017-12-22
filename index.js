@@ -3,7 +3,7 @@ const critical = 'warning'
 const major = 'warning'
 const minor = 'warning'
 
-const propertyMessage = 'Используйте семантическую палитру или палитру цветов из @sbol/lib.ui'
+const propertyMessage = 'Используйте семантическую палитру или палитру цветов из @sbol/lib.ui (возможно, цвет следует добавить в палитру, если он вычисляемый)'
 const commentMessage = 'Нежелательные комментарии: TODOs; ' +
     'stylelint-disable на несколько правил; ' +
     'stylelint-disable для одного правила без комментария к причине отключения, ' +
