@@ -9,6 +9,7 @@ const commentMessage = 'Нежелательные комментарии: TODOs
     'stylelint-disable для одного правила без комментария к причине отключения, ' +
     'пример правильного использования: "stylelint-disable-line some-rule, comment: Развернутый текст с обоснованием"'
 const classMessage = 'В css принято писать классы в kebab-case (нельзя использовать camelCase)'
+const indentationMessage = 'Разрешены отступы х2 и х4. Для использования x4 укажите в своем .stylelintrc.js правило \'indentation\': [4, { severity: ' + major + ' }]'
 
 const noColorRegexp = [
     '/#[a-fA-F0-9]{3,8}/',
@@ -233,7 +234,7 @@ const common = {
     'color-hex-length':                         ['long', { severity: major }],
     'selector-pseudo-element-colon-notation':   ['double', { severity: major }],
     'font-weight-notation':                     ['named-where-possible', { severity: major }],
-    'indentation':                              [2, { severity: major }],
+    'indentation':                              [2, { severity: major, message: indentationMessage }],
     'time-min-milliseconds':                    [170, { severity: major }], // самая короткая анимация = 0.17s
     'color-named':                              ['never', { severity: major }],
 }
