@@ -16,7 +16,7 @@ const noColorRegexp = [
     '/rgba\\(\\d{0,3}, ?\\d{0,3}, ?\\d{0,3}, ?[.\\d]+\\)/',
     '/rgb\\(\\d{0,3}, ?\\d{0,3}, ?\\d{0,3}\\)/',
     '/color\\(.+\\)/',
-    'transparent'
+    '/transparent/'
 ]
 const preventColors = {
     '/color/': noColorRegexp,
@@ -24,6 +24,7 @@ const preventColors = {
     '/background/': noColorRegexp,
     '/outline/': noColorRegexp,
     '/border/': noColorRegexp,
+    '/fill/': noColorRegexp,
     '/^--/': noColorRegexp
 }
 
