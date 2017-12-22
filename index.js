@@ -8,6 +8,7 @@ const commentMessage = 'Нежелательные комментарии: TODOs
     'stylelint-disable на несколько правил; ' +
     'stylelint-disable для одного правила без комментария к причине отключения, ' +
     'пример правильного использования: "stylelint-disable-line some-rule, comment: Развернутый текст с обоснованием"'
+const classMessage = 'В css принято писать классы в kebab-case (нельзя использовать camelCase)'
 
 const noColorRegexp = [
     '/#[a-fA-F0-9]{3,8}/',
@@ -212,8 +213,8 @@ const insides = {
 }
 
 const patterns = {
-    'selector-class-pattern':   ['^([a-z][a-z0-9]*)(-[a-z0-9]+)*$', { resolveNestedSelectors: true, severity: critical }], // kebab-case
-    'selector-nested-pattern':  ['^(&[^a-zA-Z])?', { severity: critical }], // not starting from &Letter
+    'selector-class-pattern':   ['^([a-z][a-z0-9]*)(-[a-z0-9]+)*$', { resolveNestedSelectors: true, severity: critical, message: classMessage }], // kebab-case
+    'selector-nested-pattern':  ['^(&[^a-zA-Z])?', { severity: critical, message: classMessage }], // not starting from &Letter
     'custom-media-pattern':     null,
     'selector-id-pattern':      null,
     'custom-property-pattern':  null,
